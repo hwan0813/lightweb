@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import PostForm
 
 def index(request):
-    return render(request, 'post/index.html')
+    return render(request, 'post/index2.html')
 
 def post_new(request):
     if request.method =='POST':

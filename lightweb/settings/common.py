@@ -131,8 +131,10 @@ STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
 LOGIN_URL = '/accounts/login/'
 
+#로그인 성공시 이동할 LOGIN_REDIRECT_URL
 LOGIN_REDIRECT_URL='/accounts/profile/'
 LOGOUT_REDIRECT_URL= None
 

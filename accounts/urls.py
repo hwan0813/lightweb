@@ -10,7 +10,6 @@ urlpatterns = [
         kwargs={'template_name': 'accounts/login_form.html'}),
     url(r'^logout/$', auth_views.logout, name='logout',
         kwargs={'next_page': settings.LOGIN_URL}),
-    
-    url(r'^profile/$', views.profile),
+    url(r'^profile/$', views.profile, name='profile'),
 
 ]

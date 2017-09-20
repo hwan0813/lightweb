@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('post.urls', namespace='post')),
     url(r'accounts/', include('accounts.urls')),
+    url(r'post/', include('post.urls')),
+
 ]

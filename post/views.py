@@ -2,8 +2,16 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import PostForm
 
-def index(request):
-    return render(request, 'post/index2.html')
+def mainpage(request):
+    return render(request, 'post/main.html')
+
+def photo(request):
+    return render(request, 'post/photo.html')
+def about(request):
+    return render(request, 'post/about.html')
+def member(request):
+    return render(request, 'post/member.html')
+
 
 def post_new(request):
     if request.method =='POST':

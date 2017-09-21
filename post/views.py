@@ -11,6 +11,8 @@ def about(request):
     return render(request, 'post/about.html')
 def member(request):
     return render(request, 'post/member.html')
+def introduce(request):
+    return render(request, 'post/introduce.html')
 
 
 def post_new(request):

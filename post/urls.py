@@ -6,5 +6,7 @@ urlpatterns = [
     url(r'^photo$', views.photo, name='photo'),
     url(r'^about$', views.about, name='about'),
     url(r'^member$', views.member, name='member'),
-       
+    url(r'^introduce$', views.introduce, name='introduce'),
+          
+    
 ]

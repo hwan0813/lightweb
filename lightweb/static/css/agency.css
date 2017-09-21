@@ -96,7 +96,7 @@ body {
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: transparent; }
+    background-color: #222; }
     #mainNav .navbar-brand {
       font-size: 1.75em;
       -webkit-transition: all 0.3s;
@@ -104,6 +104,10 @@ body {
       transition: all 0.3s; }
     #mainNav .navbar-nav .nav-item .nav-link {
       padding: 1.1em 1em !important; }
+    /*
+    agency.js 에서 스크롤이 top에서 100보다 내려가면
+    addClass(navbar-shrink)를 하고 아니면 removeClass스를 해서 변화를줌
+    */
     #mainNav.navbar-shrink {
       padding-top: 0;
       padding-bottom: 0;

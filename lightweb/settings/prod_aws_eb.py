@@ -5,6 +5,9 @@ import pymysql
 pymysql.install_as_MySQLdb()
 # pymysql이 MySQLdb처럼 동작토록 세팅
 
+DEBUG = True
+
+
 DATABASES = {
     'default': {
     'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.mysql'),

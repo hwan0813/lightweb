@@ -1,0 +1,49 @@
+{% extends "post/layout.html" %}
+
+{% block content %}
+
+    <section class="bg-light" id="post_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="alert alert-info">
+                        
+                    <ul>
+                        <li> 라내방송 게시판 </li>
+                        <li> 라내방송이 곧 시작됩니다 ^0^</li>
+                    </ul>
+                    </div>
+                    
+                    <a href="{% url "post:post_new" %}" class ="btn btn-primary pull-right">새글 쓰기</a>
+                    <p>
+                    
+                    <form action = "" method = "get">
+                        <input type='text' /> 
+                        <!--맨처음 {{q}}안먹혔던이유 : views.py에서 렌더에서 'q':q 를 안해줬으니까 당연. -->
+                        <input type="submit" value = "검색하기" class='btn btn-primary'/>
+                    </form>
+                    </p>
+                    <table class ="table table-hover table-bordered">
+                    <thead>
+                    <th><small>번호</small></th>
+                    <th><small>제목</small></th>
+                    <th><small>수정된 시각</small></th>
+                    </thead>
+                    <tbody>
+                    <!-- 이게 렌더링된 값을 가져오는 방법임. 중괄호두개로    -->
+                    {% for post in post_list %}
+                        <tr>
+                            <td> {{ post.id }}  </td>
+                            <td><a href = "{% url "post:post_detail" post.id %}">{{ post.title }}</a></td>
+                            <td><small>{{ post.updated_at }}</small></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+

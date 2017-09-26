@@ -1,0 +1,55 @@
+{% extends "post/layout.html" %}
+{% load imagekit %}
+{% block title %}
+{{ post.title }}
+<!--여긴 탭에 떠있는 타이틀. -->
+{% endblock %}
+
+{% block content %}
+<section>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{ post.title }}</h3>
+            <hr/>        
+            {#이렇게 쓰지마라. 변경될수잇기때문.media는#}
+            {#<img src ="/media/{{ post.photo }}" style="max-width:100%;"/>#}
+            {# if문 안써쭈면 포토안올린 겟시글은 오류뜸. post.photo가 문자열이기에 이런검사가능. #}
+            {% if post.photo %}
+                <h3>{{ post.photo}}</h3>
+                <h3>{{ post.photo.updated_at}}</h3>
+                <h3>{{ post.photo.url}}</h3>
+                <img src='/media/django.png'/>
+                <h1>q</h1>
+                <img src ="{{ post.photo }}" style="max-width:100%;"/>
+                <h1>1</h1>
+                {% thumbnail "100x100" post.photo %}
+                <h1>dd</h1>
+                {% thumbnail "100x100" post.photo as thumb %}
+                <img src ="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}"
+                <br>
+                <p>밑에 안나오나</p>
+                {% thumbnail "100x100" post.photo -- style="" onclick="" class="" %}
+                
+            {% endif %}
+            {{ post.content|linebreaks }}
+            <!--line breaks써주면 html 개행 무시하던걸 안무시하게 해줌. -->
+
+
+            <h5>Comments</h5>
+            <ul>
+            {% for comment in  post.comment_set.all %}
+            <li>
+                {{ comment.message }}
+                {{ comment.author }}
+                {{ comment.updated_at}}
+            </li>
+            {%endfor%}
+            </ul>
+            <hr/>
+            
+        </div>
+    </div>
+</div>  
+</section>
+{% endblock %}
